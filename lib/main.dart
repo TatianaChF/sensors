@@ -9,10 +9,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color mainColor = Color(0xFF102C14);
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: mainColor,
+        ),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -55,7 +58,11 @@ class _MyHomePageState extends State<MyHomePage> {
             Text('Приложение для отображения датчиков на карте, вывода информации и графиков на основе данных от них'),
             ElevatedButton(
                 onPressed: (){}, 
-                child: Text('Начать')
+                child: Text('Начать'),
+                style: const ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll<Color>(Color(0xFF102C14)),
+
+                )
             )
           ],
         ),
