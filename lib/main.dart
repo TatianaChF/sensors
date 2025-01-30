@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const MyHomePage(),
+      debugShowCheckedModeBanner: false
     );
   }
 }
@@ -32,7 +33,7 @@ class MyHomePage extends StatelessWidget {
       body: Center(
         child: Container(
           width: 600,
-          height: 500,
+          height: 300,
           child: Card(
             color: Color(0xFFD4E4D7),
             shape: RoundedRectangleBorder(
