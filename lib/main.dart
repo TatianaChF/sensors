@@ -37,39 +37,50 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Приложение "Датчики"', 
-              style: TextStyle(
-                fontSize: 24, 
-                fontWeight: FontWeight.bold
-              )
+        child: Container(
+          width: 600,
+          height: 500,
+          child: Card(
+            color: Color(0xFFD4E4D7),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+              side: BorderSide(width: 1, color: Color(0xFF102C14))
             ),
-            SizedBox(height: 10,),
-            Container(
-              width: 500,
-              child: Text(
-                'Приложение для отображения датчиков на карте, вывода информации и графиков на основе данных от них',
-                style: TextStyle(
-                  fontSize: 20,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('Приложение "Датчики"',
+                    style: TextStyle(
+                      fontSize: 24, 
+                      fontWeight: FontWeight.bold
+                    )
                 ),
-                textAlign: TextAlign.center,
-              ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  width: 500,
+                  child: Text(
+                    'Приложение для отображения датчиков на карте, вывода информации и графиков на основе данных от них',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF102C14),
+                  ),
+                  child: Text('Начать', style: TextStyle(color: Colors.white)),
+                )
+              ],
             ),
-            SizedBox(height: 20,),
-            ElevatedButton(
-                onPressed: (){},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF102C14),
-                ),
-                child: Text(
-                  'Начать',
-                  style: TextStyle(color: Colors.white)
-                ),
-            )
-          ],
+          ),
         ),
       ),
     );
