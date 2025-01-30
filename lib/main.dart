@@ -57,20 +57,17 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text('Приложение для отображения датчиков на карте, вывода информации и графиков на основе данных от них'),
             ElevatedButton(
-                onPressed: (){}, 
-                child: Text('Начать'),
-                style: const ButtonStyle(
-                  backgroundColor: WidgetStatePropertyAll<Color>(Color(0xFF102C14)),
-
-                )
+                onPressed: (){},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF102C14),
+                ),
+                child: Text(
+                  'Начать',
+                  style: TextStyle(color: Colors.white)
+                ),
             )
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
