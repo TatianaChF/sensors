@@ -50,12 +50,13 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'Приложение "Датчики"',
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            Text('Приложение для отображения датчиков на карте, вывода информации и графиков на основе данных от них'),
+            ElevatedButton(
+                onPressed: (){}, 
+                child: Text('Начать')
+            )
           ],
         ),
       ),
