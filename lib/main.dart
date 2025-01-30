@@ -48,13 +48,17 @@ class _MyHomePageState extends State<MyHomePage> {
               )
             ),
             SizedBox(height: 10,),
-            Text(
-              'Приложение для отображения датчиков на карте, вывода информации и графиков на основе данных от них',
-              style: TextStyle(
-                fontSize: 20
-              )
+            Container(
+              width: 500,
+              child: Text(
+                'Приложение для отображения датчиков на карте, вывода информации и графиков на основе данных от них',
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+                textAlign: TextAlign.center,
+              ),
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: 20,),
             ElevatedButton(
                 onPressed: (){},
                 style: ElevatedButton.styleFrom(
