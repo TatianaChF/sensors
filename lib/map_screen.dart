@@ -13,6 +13,7 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   late final MapController _mapController;
+  int _currentIndex = 0;
 
   List<LatLng> get _mapPoints => const [
         LatLng(55.755793, 37.617134),
@@ -52,19 +53,32 @@ class _MapScreenState extends State<MapScreen> {
               )
             ]
         ),
-      bottomNavigationBar: NavigationBar(
-          destinations: const <Widget>[
-            NavigationDestination(
-                selectedIcon: Icon(Icons.roofing_outlined),
-                icon: Icon(Icons.room),
-                label: "Карта",
-            ),
-            NavigationDestination(
-                selectedIcon: Icon(Icons.inbox_outlined),
-                icon: Icon(Icons.inbox),
-                label: "Диаграммы"
-            )
-          ]
+      bottomNavigationBar: NavigationBarTheme(
+          data: NavigationBarThemeData(
+            indicatorColor: Color(0xFFD4E4D7),
+          ),
+          child: NavigationBar(
+              backgroundColor: Color(0xFF102C14),
+              animationDuration: const Duration(seconds: 1),
+              selectedIndex: _currentIndex,
+              onDestinationSelected: (int newIndex) {
+                setState(() {
+                  _currentIndex = newIndex;
+                });
+              },
+              destinations: const <Widget>[
+                NavigationDestination(
+                  selectedIcon: Icon(Icons.location_on),
+                  icon: Icon(Icons.location_on_outlined),
+                  label: "Карта",
+                ),
+                NavigationDestination(
+                    selectedIcon: Icon(Icons.inbox),
+                    icon: Icon(Icons.inbox_outlined),
+                    label: "Диаграммы"
+                )
+              ]
+          ),
       ),
     );
   }
