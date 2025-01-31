@@ -55,10 +55,12 @@ class _MapScreenState extends State<MapScreen> {
       bottomNavigationBar: NavigationBar(
           destinations: const <Widget>[
             NavigationDestination(
+                selectedIcon: Icon(Icons.roofing_outlined),
                 icon: Icon(Icons.room),
-                label: "Карта"
+                label: "Карта",
             ),
             NavigationDestination(
+                selectedIcon: Icon(Icons.inbox_outlined),
                 icon: Icon(Icons.inbox),
                 label: "Диаграммы"
             )
