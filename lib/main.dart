@@ -6,24 +6,20 @@ void main() {
   runApp(const MyApp());
 }
 
-final GoRouter _router = GoRouter(
-    routes: <RouteBase> [
-      GoRoute(
-          path: "/",
-          builder: (BuildContext contex, GoRouterState state) {
-            return const MyHomePage(title: 'Flutter Demo Home Page');
-          },
-          routes: <RouteBase> [
-            GoRoute(
-                path: "/map",
-                builder: (BuildContext contex, GoRouterState state) {
-                  return const MapScreen();
-                }
-            ),
-          ]
-      )
-    ]
-);
+final GoRouter _router = GoRouter(routes: <RouteBase>[
+  GoRoute(
+      path: "/",
+      builder: (BuildContext contex, GoRouterState state) {
+        return const MyHomePage(title: 'Flutter Demo Home Page');
+      },
+      routes: <RouteBase>[
+        GoRoute(
+            path: "/map",
+            builder: (BuildContext contex, GoRouterState state) {
+              return const MapScreen();
+            }),
+      ])
+]);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -38,7 +34,8 @@ class MyApp extends StatelessWidget {
       //   ),
       //   useMaterial3: true,
       // ),
-      routerConfig: _router,
+        routerConfig: _router,
+        debugShowCheckedModeBanner: false
     );
   }
 }
@@ -53,44 +50,54 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Приложение "Датчики"',
-              style: TextStyle(
-                  fontSize: 30,
-                  color: Color(0xFF102C14),
-                  fontWeight: FontWeight.bold
-              ),
+        child: Container(
+          width: 600,
+          height: 500,
+          child: Card(
+            color: Color(0xFFD4E4D7),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+                side: BorderSide(width: 1, color: Color(0xFF102C14))
             ),
-            SizedBox(height: 10,),
-            Text(
-                'Приложение для отображения датчиков на карте, вывода информации и графиков на основе данных от них',
-                style: TextStyle(
-                    fontSize: 20,
-                    color: Color(0xFF102C14)
-                )
-            ),
-            SizedBox(height: 10,),
-            ElevatedButton(
-                style: const ButtonStyle(
-                  backgroundColor: WidgetStatePropertyAll<Color>(Color(0xFF102C14)),
-                ),
-                onPressed: () => context.go("/map"),
-                child: Text(
-                    'Начать',
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('Приложение "Датчики"',
                     style: TextStyle(
-                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold
                     )
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  width: 500,
+                  child: Text(
+                    'Приложение для отображения датчиков на карте, вывода информации и графиков на основе данных от них',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF102C14),
+                  ),
+                  child: Text('Начать', style: TextStyle(color: Colors.white)),
                 )
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
