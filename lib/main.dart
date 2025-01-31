@@ -89,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 20,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => context.go("/map"),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFF102C14),
                   ),
