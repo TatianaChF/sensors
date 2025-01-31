@@ -1,24 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:sensors/map_screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+final GoRouter _router = GoRouter(
+    routes: <RouteBase> [
+      GoRoute(
+          path: "/",
+          builder: (BuildContext contex, GoRouterState state) {
+            return const MyHomePage(title: 'Flutter Demo Home Page');
+          },
+          routes: <RouteBase> [
+            GoRoute(
+                path: "/map",
+                builder: (BuildContext contex, GoRouterState state) {
+                  return const MapScreen();
+                }
+            ),
+          ]
+      )
+    ]
+);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Color mainColor = Color(0xFF102C14);
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: mainColor,
-        ),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    return MaterialApp.router(
+      // title: 'Flutter Demo',
+      // theme: ThemeData(
+      //   colorScheme: ColorScheme.fromSeed(
+      //     seedColor: mainColor,
+      //   ),
+      //   useMaterial3: true,
+      // ),
+      routerConfig: _router,
     );
   }
 }
@@ -57,13 +77,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text('Приложение для отображения датчиков на карте, вывода информации и графиков на основе данных от них'),
             ElevatedButton(
-                onPressed: (){}, 
-                child: Text('Начать'),
                 style: const ButtonStyle(
                   backgroundColor: WidgetStatePropertyAll<Color>(Color(0xFF102C14)),
-
-                )
-            )
+                ),
+                onPressed: () => context.go("/map"),
+                child: Text('Начать')
+            ),
           ],
         ),
       ),
