@@ -51,7 +51,19 @@ class _MapScreenState extends State<MapScreen> {
                 userAgentPackageName: 'com.example.flutter_map_example', // позже указать название приложения
               )
             ]
-        )
+        ),
+      bottomNavigationBar: NavigationBar(
+          destinations: const <Widget>[
+            NavigationDestination(
+                icon: Icon(Icons.room),
+                label: "Карта"
+            ),
+            NavigationDestination(
+                icon: Icon(Icons.inbox),
+                label: "Диаграммы"
+            )
+          ]
+      ),
     );
   }
 }
