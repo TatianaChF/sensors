@@ -11,66 +11,71 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Color mainColor = Color(0xFF102C14);
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: mainColor,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: mainColor,
+          ),
+          useMaterial3: true,
         ),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        home: const MyHomePage(),
+        debugShowCheckedModeBanner: false
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Приложение "Датчики"',
+        child: Container(
+          width: 600,
+          height: 300,
+          child: Card(
+            color: Color(0xFFD4E4D7),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+                side: BorderSide(width: 1, color: Color(0xFF102C14))
             ),
-            Text('Приложение для отображения датчиков на карте, вывода информации и графиков на основе данных от них'),
-            ElevatedButton(
-                onPressed: (){}, 
-                child: Text('Начать'),
-                style: const ButtonStyle(
-                  backgroundColor: WidgetStatePropertyAll<Color>(Color(0xFF102C14)),
-
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('Приложение "Датчики"',
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold
+                    )
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  width: 500,
+                  child: Text(
+                    'Приложение для отображения датчиков на карте, вывода информации и графиков на основе данных от них',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF102C14),
+                  ),
+                  child: Text('Начать', style: TextStyle(color: Colors.white)),
                 )
-            )
-          ],
+              ],
+            ),
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
