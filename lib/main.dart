@@ -7,26 +7,36 @@ void main() {
   runApp(const MyApp());
 }
 
-final GoRouter _router = GoRouter(routes: <RouteBase>[
-  GoRoute(
-      path: "/",
-      builder: (BuildContext contex, GoRouterState state) {
-        return const MyHomePage(title: 'Flutter Demo Home Page');
-      },
-      routes: <RouteBase>[
+final _rootNavigatorKey = GlobalKey<NavigatorState>();
+final _shellNavigatorKey = GlobalKey<NavigatorState>();
+
+final GoRouter _router = GoRouter(
+    initialLocation: '/',
+    navigatorKey: _rootNavigatorKey,
+    routes: <RouteBase>[
+      ShellRoute(navigatorKey: _shellNavigatorKey, routes: [
         GoRoute(
-            path: "/map",
+            path: "/",
             builder: (BuildContext contex, GoRouterState state) {
-              return const MapScreen();
-            }),
-        GoRoute(
-          path: "/diagram",
-          builder: (BuildContext context, GoRouterState state) {
-            return const DiagramPage();
-          },
-        ),
+              return const MyHomePage(title: 'Flutter Demo Home Page');
+            },
+            routes: <RouteBase>[
+              GoRoute(
+                  path: "/map",
+                  parentNavigatorKey: _shellNavigatorKey,
+                  builder: (BuildContext contex, GoRouterState state) {
+                    return const MapScreen();
+                  }),
+              GoRoute(
+                path: "/diagram",
+                parentNavigatorKey: _shellNavigatorKey,
+                builder: (BuildContext context, GoRouterState state) {
+                  return const DiagramPage();
+                },
+              ),
+            ])
       ])
-]);
+    ]);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -34,16 +44,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      // title: 'Flutter Demo',
-      // theme: ThemeData(
-      //   colorScheme: ColorScheme.fromSeed(
-      //     seedColor: mainColor,
-      //   ),
-      //   useMaterial3: true,
-      // ),
+        // title: 'Flutter Demo',
+        // theme: ThemeData(
+        //   colorScheme: ColorScheme.fromSeed(
+        //     seedColor: mainColor,
+        //   ),
+        //   useMaterial3: true,
+        // ),
         routerConfig: _router,
-        debugShowCheckedModeBanner: false
-    );
+        debugShowCheckedModeBanner: false);
   }
 }
 
@@ -68,17 +77,13 @@ class _MyHomePageState extends State<MyHomePage> {
             color: Color(0xFFD4E4D7),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
-                side: BorderSide(width: 1, color: Color(0xFF102C14))
-            ),
+                side: BorderSide(width: 1, color: Color(0xFF102C14))),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text('Приложение "Датчики"',
-                    style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold
-                    )
-                ),
+                    style:
+                        TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                 SizedBox(
                   height: 10,
                 ),
