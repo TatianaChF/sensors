@@ -55,7 +55,6 @@ class _MapScreenState extends State<MapScreen> {
               userAgentPackageName:
                   'com.example.flutter_map_example', // позже указать название приложения
             ),
-            MyNavigationBar()
           ]),
     );
   }

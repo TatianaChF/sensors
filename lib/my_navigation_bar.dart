@@ -2,21 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:sensors/diagram_page.dart';
 import 'package:sensors/map_screen.dart';
 
-class MyNavigationBar extends StatefulWidget {
-  const MyNavigationBar({super.key});
+class MyNavigationBar extends StatelessWidget  {
+  const MyNavigationBar({
+    super.key, required this.navigationShell});
 
-  @override
-  State<MyNavigationBar> createState() => _MyNavigationBar();
-}
-
-class _MyNavigationBar extends State<MyNavigationBar> {
+  final navigationShell;
   int _currentIndex = 0;
+
+  void _goBranch(int index) {
+    navigationShell.goBranch(
+      index,
+      initialLocation: index == navigationShell.currentIndex,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Text("test"),
-        //_currentIndex == 0 ? MapScreen() : DiagramPage(),
+        body: navigationShell,
         bottomNavigationBar: NavigationBarTheme(
           data: NavigationBarThemeData(
               indicatorColor: Color(0xFFD4E4D7),
@@ -26,7 +29,7 @@ class _MyNavigationBar extends State<MyNavigationBar> {
           child: NavigationBar(
             backgroundColor: Color(0xFF102C14),
             animationDuration: const Duration(seconds: 1),
-            selectedIndex: _currentIndex,
+            selectedIndex: navigationShell.currentIndex,
             destinations: const [
               NavigationDestination(
                   selectedIcon: Icon(Icons.location_on),
@@ -38,11 +41,7 @@ class _MyNavigationBar extends State<MyNavigationBar> {
                 label: "Диаграммы",
               )
             ],
-            onDestinationSelected: (int newIndex) {
-              setState(() {
-                _currentIndex = newIndex;
-              });
-            },
+            onDestinationSelected: _goBranch,
           ),
         ));
   }

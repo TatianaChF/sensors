@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sensors/diagram_page.dart';
 import 'package:sensors/map_screen.dart';
+import 'package:sensors/my_navigation_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,22 +10,35 @@ void main() {
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorMapKey = GlobalKey<NavigatorState>(debugLabel: "shellMap");
-final _shellNavigatorDiagramKey = GlobalKey<NavigatorState>(debugLabel: "shellDiagram");
+final _shellNavigatorDiagramKey =
+    GlobalKey<NavigatorState>(debugLabel: "shellDiagram");
 
-final GoRouter _router = GoRouter(routes: <RouteBase>[
-  GoRoute(
-      path: "/",
-      builder: (BuildContext contex, GoRouterState state) {
-        return const MyHomePage(title: 'Flutter Demo Home Page');
-      },
-      routes: <RouteBase>[
-        GoRoute(
-            path: "/map",
-            builder: (BuildContext contex, GoRouterState state) {
-              return const MapScreen();
-            }),
-      ])
-]);
+final GoRouter _router = GoRouter(
+    initialLocation: "/",
+    navigatorKey: _rootNavigatorKey,
+    routes: <RouteBase>[
+      StatefulShellRoute.indexedStack(
+        builder: (context, state, navigationShell) => 
+          MyNavigationBar(navigationShell: navigationShell),
+        branches: [
+          StatefulShellBranch(navigatorKey: _shellNavigatorMapKey, routes: [
+            GoRoute(
+                path: "/map",
+                builder: (BuildContext contex, GoRouterState state) {
+                  return const MapScreen();
+                }),
+          ]),
+          StatefulShellBranch(navigatorKey: _shellNavigatorDiagramKey, routes: [
+            GoRoute(
+                path: "/diagram",
+                builder: (BuildContext contex, GoRouterState state) {
+                  return const DiagramPage();
+                })
+          ])
+        ],
+      ),
+    ]
+);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -31,16 +46,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      // title: 'Flutter Demo',
-      // theme: ThemeData(
-      //   colorScheme: ColorScheme.fromSeed(
-      //     seedColor: mainColor,
-      //   ),
-      //   useMaterial3: true,
-      // ),
         routerConfig: _router,
-        debugShowCheckedModeBanner: false
-    );
+        debugShowCheckedModeBanner: false);
   }
 }
 
@@ -65,17 +72,13 @@ class _MyHomePageState extends State<MyHomePage> {
             color: Color(0xFFD4E4D7),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
-                side: BorderSide(width: 1, color: Color(0xFF102C14))
-            ),
+                side: BorderSide(width: 1, color: Color(0xFF102C14))),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text('Приложение "Датчики"',
-                    style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold
-                    )
-                ),
+                    style:
+                        TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                 SizedBox(
                   height: 10,
                 ),
