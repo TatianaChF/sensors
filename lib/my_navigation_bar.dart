@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:sensors/diagram_page.dart';
 import 'package:sensors/map_screen.dart';
+import 'package:go_router/go_router.dart';
 
 class MyNavigationBar extends StatelessWidget  {
   const MyNavigationBar({
-    super.key, required this.navigationShell});
+    super.key, 
+    required this.navigationShell
+  });
 
-  final navigationShell;
+  final StatefulNavigationShell navigationShell;
   int _currentIndex = 0;
 
   void _goBranch(int index) {
