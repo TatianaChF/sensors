@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sensors/diagram_page.dart';
 import 'package:sensors/map_screen.dart';
 
 void main() {
@@ -18,6 +19,12 @@ final GoRouter _router = GoRouter(routes: <RouteBase>[
             builder: (BuildContext contex, GoRouterState state) {
               return const MapScreen();
             }),
+        GoRoute(
+          path: "/diagram",
+          builder: (BuildContext context, GoRouterState state) {
+            return const DiagramPage();
+          },
+        ),
       ])
 ]);
 

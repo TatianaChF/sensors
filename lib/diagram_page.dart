@@ -14,7 +14,9 @@ class _DiagramPage extends State<DiagramPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("Страница диаграмм")
+      body: Center(
+        child: Text("Страница диаграмм")
+      )
     );
   }
 }
