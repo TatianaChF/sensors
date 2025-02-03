@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:sensors/my_navigation_bar.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({
@@ -53,36 +54,10 @@ class _MapScreenState extends State<MapScreen> {
                   'https://tile.openstreetmap.org/{z}/{x}/{y}.png', // основное отображение карты
               userAgentPackageName:
                   'com.example.flutter_map_example', // позже указать название приложения
-            )
+            ),
+            MyNavigationBar()
           ]),
-      bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(
-          indicatorColor: Color(0xFFD4E4D7),
-          labelTextStyle: WidgetStateProperty.all(
-              const TextStyle(color: Colors.white,)
-        )),
-        child: NavigationBar(
-            backgroundColor: Color(0xFF102C14),
-            animationDuration: const Duration(seconds: 1),
-            selectedIndex: _currentIndex,
-            onDestinationSelected: (int newIndex) {
-              setState(() {
-                _currentIndex = newIndex;
-              });
-            },
-            destinations: const <Widget>[
-              NavigationDestination(
-                selectedIcon: Icon(Icons.location_on),
-                icon: Icon(Icons.location_on_outlined, color: Colors.white),
-                label: "Карта",
-              ),
-              NavigationDestination(
-                selectedIcon: Icon(Icons.inbox),
-                icon: Icon(Icons.inbox_outlined, color: Colors.white),
-                label: "Диаграммы",
-              )
-            ]),
-      ),
     );
   }
 }
+
