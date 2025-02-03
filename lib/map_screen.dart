@@ -40,45 +40,48 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: FlutterMap(
-            mapController: _mapController,
-            options: const MapOptions(
-              initialCenter: LatLng(55.755793, 37.617134), // точка, относительно которой карта отцентрирована при инициализации
+      body: FlutterMap(
+          mapController: _mapController,
+          options: const MapOptions(
+              initialCenter: LatLng(55.755793,
+                  37.617134), // точка, относительно которой карта отцентрирована при инициализации
               initialZoom: 5 // уровень начального масштабирования
-            ),
-            children: [
-              TileLayer(
-                urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png', // основное отображение карты
-                userAgentPackageName: 'com.example.flutter_map_example', // позже указать название приложения
-              )
-            ]
-        ),
+              ),
+          children: [
+            TileLayer(
+              urlTemplate:
+                  'https://tile.openstreetmap.org/{z}/{x}/{y}.png', // основное отображение карты
+              userAgentPackageName:
+                  'com.example.flutter_map_example', // позже указать название приложения
+            )
+          ]),
       bottomNavigationBar: NavigationBarTheme(
-          data: NavigationBarThemeData(
-            indicatorColor: Color(0xFFD4E4D7),
-          ),
-          child: NavigationBar(
-              backgroundColor: Color(0xFF102C14),
-              animationDuration: const Duration(seconds: 1),
-              selectedIndex: _currentIndex,
-              onDestinationSelected: (int newIndex) {
-                setState(() {
-                  _currentIndex = newIndex;
-                });
-              },
-              destinations: const <Widget>[
-                NavigationDestination(
-                  selectedIcon: Icon(Icons.location_on),
-                  icon: Icon(Icons.location_on_outlined),
-                  label: "Карта",
-                ),
-                NavigationDestination(
-                    selectedIcon: Icon(Icons.inbox),
-                    icon: Icon(Icons.inbox_outlined),
-                    label: "Диаграммы"
-                )
-              ]
-          ),
+        data: NavigationBarThemeData(
+          indicatorColor: Color(0xFFD4E4D7),
+          labelTextStyle: WidgetStateProperty.all(
+              const TextStyle(color: Colors.white,)
+        )),
+        child: NavigationBar(
+            backgroundColor: Color(0xFF102C14),
+            animationDuration: const Duration(seconds: 1),
+            selectedIndex: _currentIndex,
+            onDestinationSelected: (int newIndex) {
+              setState(() {
+                _currentIndex = newIndex;
+              });
+            },
+            destinations: const <Widget>[
+              NavigationDestination(
+                selectedIcon: Icon(Icons.location_on),
+                icon: Icon(Icons.location_on_outlined, color: Colors.white),
+                label: "Карта",
+              ),
+              NavigationDestination(
+                selectedIcon: Icon(Icons.inbox),
+                icon: Icon(Icons.inbox_outlined, color: Colors.white),
+                label: "Диаграммы",
+              )
+            ]),
       ),
     );
   }
