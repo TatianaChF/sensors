@@ -5,21 +5,21 @@ import 'package:sensors/map_screen.dart';
 import 'package:sensors/my_navigation_bar.dart';
 
 final router = GoRouter(
-  initialLocation: '/',
+  initialLocation: '/map',
   routes: [
     // BottomNavigationBar
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) =>
           MyNavigationBar(navigationShell: navigationShell),
       branches: [
-        StatefulShellBranch(
-            routes: [
-              GoRoute(
-                path: '/',
-                builder: (context, state) => const MyApp(),
-              )
-            ]
-        ),
+        // StatefulShellBranch(
+        //     routes: [
+        //       GoRoute(
+        //         path: '/',
+        //         builder: (context, state) => const MyApp(),
+        //       )
+        //     ]
+        // ),
         StatefulShellBranch(
           routes: [
             GoRoute(
