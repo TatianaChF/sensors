@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
-import 'package:sensors/diagram_page.dart';
-import 'package:sensors/home_page.dart';
-import 'package:sensors/map_screen.dart';
+import 'package:sensors/pages/diagram_page.dart';
+import 'package:sensors/pages/home_page.dart';
+import 'package:sensors/pages/map_screen.dart';
 import 'package:sensors/navigation/my_navigation_bar.dart';
 
 final router = GoRouter(
