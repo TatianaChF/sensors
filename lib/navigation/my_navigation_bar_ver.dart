@@ -18,6 +18,8 @@ class MyNavigationBarVer extends StatelessWidget {
       body: Row(
         children: [
           NavigationRail(
+            backgroundColor: Color(0xFF102C14),
+            indicatorColor: Color(0xFFD4E4D7),
             onDestinationSelected: onDestinationSelected,
             labelType: NavigationRailLabelType.all,
             selectedIndex: currentIndex,
@@ -25,12 +27,12 @@ class MyNavigationBarVer extends StatelessWidget {
               NavigationRailDestination(
                 selectedIcon: Icon(Icons.location_on),
                 icon: Icon(Icons.location_on_outlined, color: Colors.white), 
-                label: Text("Карта")
+                label: Text("Карта", style: TextStyle(color: Colors.white),)
               ),
               NavigationRailDestination(
                 selectedIcon: Icon(Icons.inbox),
                 icon: Icon(Icons.inbox_outlined, color: Colors.white), 
-                label: Text("Диаграммы")
+                label: Text("Диаграммы", style: TextStyle(color: Colors.white),)
               )
             ], 
           ),
