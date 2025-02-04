@@ -21,7 +21,7 @@ class MyNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth < 450) {
+      if (constraints.maxWidth < 800) {
         return MyNavigationBarHor(
           currentIndex: navigationShell.currentIndex, 
           body: navigationShell, 
