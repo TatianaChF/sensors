@@ -10,7 +10,6 @@ class MyNavigationBar extends StatelessWidget  {
   });
 
   final StatefulNavigationShell navigationShell;
-  int _currentIndex = 0;
 
   void _goBranch(int index) {
     navigationShell.goBranch(
