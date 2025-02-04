@@ -1,44 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:sensors/diagram_page.dart';
-import 'package:sensors/map_screen.dart';
-import 'package:sensors/my_navigation_bar.dart';
+import 'package:sensors/routing/app_routing.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
-final _rootNavigatorKey = GlobalKey<NavigatorState>();
-final _shellNavigatorMapKey = GlobalKey<NavigatorState>(debugLabel: "shellMap");
-final _shellNavigatorDiagramKey =
-    GlobalKey<NavigatorState>(debugLabel: "shellDiagram");
-
-final GoRouter _router = GoRouter(
-    initialLocation: "/",
-    navigatorKey: _rootNavigatorKey,
-    routes: <RouteBase>[
-      StatefulShellRoute.indexedStack(
-        builder: (context, state, navigationShell) => 
-          MyNavigationBar(navigationShell: navigationShell),
-        branches: [
-          StatefulShellBranch(navigatorKey: _shellNavigatorMapKey, routes: [
-            GoRoute(
-                path: "/map",
-                builder: (BuildContext contex, GoRouterState state) {
-                  return const MapScreen();
-                }),
-          ]),
-          StatefulShellBranch(navigatorKey: _shellNavigatorDiagramKey, routes: [
-            GoRoute(
-                path: "/diagram",
-                builder: (BuildContext contex, GoRouterState state) {
-                  return const DiagramPage();
-                })
-          ])
-        ],
-      ),
-    ]
-);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -46,8 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-        routerConfig: _router,
-        debugShowCheckedModeBanner: false);
+        routerConfig: router,
+        debugShowCheckedModeBanner: false
+    );
   }
 }
 
