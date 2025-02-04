@@ -14,8 +14,7 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   late final MapController _mapController;
-  int _currentIndex = 0;
-
+  
   List<LatLng> get _mapPoints => const [
         LatLng(55.755793, 37.617134),
         LatLng(55.095960, 38.765519),
