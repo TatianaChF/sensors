@@ -23,13 +23,13 @@ class MyNavigationBar extends StatelessWidget {
     return LayoutBuilder(builder: (context, constraints) {
       if (constraints.maxWidth < 450) {
         return MyNavigationBarHor(
-          navigationShell: navigationShell, 
+          currentIndex: navigationShell.currentIndex, 
           body: navigationShell, 
           onDestinationSelected: _goBranch
         );
       } else {
         return MyNavigationBarVer(
-          navigationShell: navigationShell, 
+          currentIndex: navigationShell.currentIndex, 
           body: navigationShell, 
           onDestinationSelected: _goBranch
         );

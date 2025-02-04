@@ -4,12 +4,12 @@ import 'package:go_router/go_router.dart';
 class MyNavigationBarVer extends StatelessWidget {
   const MyNavigationBarVer({
     super.key,
-    required this.navigationShell,
+    required this.currentIndex,
     required this.body,
     required this.onDestinationSelected
   });
 
-  final StatefulNavigationShell navigationShell;
+  final int currentIndex;
   final Widget body;
   final ValueChanged<int> onDestinationSelected;
 
@@ -21,7 +21,7 @@ class MyNavigationBarVer extends StatelessWidget {
           NavigationRail(
             onDestinationSelected: onDestinationSelected,
             labelType: NavigationRailLabelType.all,
-            selectedIndex: navigationShell.currentIndex,
+            selectedIndex: currentIndex,
             destinations: const [
               NavigationRailDestination(
                 selectedIcon: Icon(Icons.location_on),

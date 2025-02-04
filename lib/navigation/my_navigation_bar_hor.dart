@@ -4,15 +4,19 @@ import 'package:go_router/go_router.dart';
 class MyNavigationBarHor extends StatelessWidget {
   const MyNavigationBarHor({
     super.key,
-    required this.navigationShell
+    required this.currentIndex,
+    required this.body,
+    required this.onDestinationSelected
   });
 
-  final StatefulNavigationShell navigationShell;
+  final int currentIndex;
+  final Widget body;
+  final ValueChanged<int> onDestinationSelected;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: navigationShell,
+      body: body,
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
         indicatorColor: Color(0xFFD4E4D7),
@@ -22,7 +26,7 @@ class MyNavigationBarHor extends StatelessWidget {
       child: NavigationBar(
         backgroundColor: Color(0xFF102C14),
         animationDuration: const Duration(seconds: 1),
-        selectedIndex: navigationShell.currentIndex,
+        selectedIndex: currentIndex,
         destinations: const [
           NavigationDestination(
               selectedIcon: Icon(Icons.location_on),
@@ -35,11 +39,7 @@ class MyNavigationBarHor extends StatelessWidget {
             label: "Диаграммы",
           ),
         ],
-        onDestinationSelected: (index) =>
-            navigationShell.goBranch(
-              index,
-              initialLocation: index == navigationShell.currentIndex,
-            ),
+        onDestinationSelected: onDestinationSelected,
       ),
     ));
   }
