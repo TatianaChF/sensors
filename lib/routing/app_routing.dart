@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:sensors/diagram_page.dart';
+import 'package:sensors/main.dart';
 import 'package:sensors/map_screen.dart';
 import 'package:sensors/my_navigation_bar.dart';
 
@@ -11,6 +12,14 @@ final router = GoRouter(
       builder: (context, state, navigationShell) =>
           MyNavigationBar(navigationShell: navigationShell),
       branches: [
+        StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/',
+                builder: (context, state) => const MyApp(),
+              )
+            ]
+        ),
         StatefulShellBranch(
           routes: [
             GoRoute(
