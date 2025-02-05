@@ -27,7 +27,7 @@ class _DiagramPage extends State<DiagramPage> {
               color: Color(0xFF102C14),
               borderRadius: BorderRadius.circular(20.0)
             ),
-            margin: EdgeInsets.only(top: 24, left: 24),
+            margin: EdgeInsets.symmetric(horizontal: width * 0.03, vertical: height * 0.05),
             child: Card(
               color: Color(0xFFD4E4D7),
               child: Text(
