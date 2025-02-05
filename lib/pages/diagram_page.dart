@@ -30,12 +30,18 @@ class _DiagramPage extends State<DiagramPage> {
             margin: EdgeInsets.symmetric(horizontal: width * 0.03, vertical: height * 0.05),
             child: Card(
               color: Color(0xFFD4E4D7),
-              child: Text(
-                  "Диаграмма 1",
-                  style: TextStyle(
-                      color: Color(0xFF102C14),
-                      fontWeight: FontWeight.bold
-                  )),
+              child: Row(
+                children: [
+                  Text(
+                      "Диаграмма 1",
+                      style: TextStyle(
+                          color: Color(0xFF102C14),
+                          fontWeight: FontWeight.bold
+                      )
+                  ),
+                  Icon(Icons.arrow_drop_down)
+                ],
+              )
             )
           )
         ]
