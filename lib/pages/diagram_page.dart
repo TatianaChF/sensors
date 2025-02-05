@@ -14,20 +14,27 @@ class _DiagramPage extends State<DiagramPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Container(
-          width: 800,
-          height: 100,
-          padding: const EdgeInsets.all(20.0),
-          decoration: BoxDecoration(
-            color: Color(0xFF102C14),
-            borderRadius: BorderRadius.circular(20.0)
-          ),
-          child: Card(
-            color: Color(0xFFD4E4D7),
-            child: Text("Страница диаграмм"),
+      body: Row(
+        children: [
+          Container(
+            width: 800,
+            height: 100,
+            padding: const EdgeInsets.all(15.0),
+            decoration: BoxDecoration(
+              color: Color(0xFF102C14),
+              borderRadius: BorderRadius.circular(20.0)
+            ),
+            child: Card(
+              color: Color(0xFFD4E4D7),
+              child: Text(
+                  "Диаграмма 1",
+                  style: TextStyle(
+                      color: Color(0xFF102C14),
+                      fontWeight: FontWeight.bold
+                  )),
+            )
           )
-        )
+        ]
       )
     );
   }
