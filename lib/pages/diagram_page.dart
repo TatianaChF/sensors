@@ -31,16 +31,18 @@ class _DiagramPage extends State<DiagramPage> {
             child: Card(
               color: Color(0xFFD4E4D7),
               child: Container(
-                margin: EdgeInsets.only(left: 15),
+                margin: EdgeInsets.only(left: 15, right: 15),
                 child: Row(
                   children: [
                     Text(
                         "Диаграмма 1",
                         style: TextStyle(
                             color: Color(0xFF102C14),
-                            fontWeight: FontWeight.bold
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20
                         )
                     ),
+                    Spacer(),
                     Icon(Icons.arrow_drop_down)
                   ],
                 )
