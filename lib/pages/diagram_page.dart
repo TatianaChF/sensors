@@ -43,7 +43,11 @@ class _DiagramPage extends State<DiagramPage> {
                         )
                     ),
                     Spacer(),
-                    Icon(Icons.arrow_drop_down)
+                    Icon(
+                      Icons.arrow_drop_down,
+                      color: Color(0xFF102C14),
+                      size: 35,
+                    )
                   ],
                 )
               )
