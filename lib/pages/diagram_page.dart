@@ -23,23 +23,31 @@ class DiagramPage extends StatefulWidget {
 class _DiagramPage extends State<DiagramPage> {
 
   List<DiagramData> sensorData = [
-    DiagramData(name: "Датчик №1", data: 0),
-    DiagramData(name: "Датчик №2", data: 1),
-    DiagramData(name: "Датчик №3", data: 2),
+    // DiagramData(name: "Датчик №1", data: 0),
+    // DiagramData(name: "Датчик №2", data: 1),
+    // DiagramData(name: "Датчик №3", data: 2),
   ];
 
   @override
   Widget build(BuildContext context) {
 
-    return ListView.builder(
-      itemCount: sensorData.length,
-      itemBuilder: (BuildContext context, int index) {
-        if (sensorData.length == 0) {
-          return Text("Нет датчиков");
-        } else {
-          return DiagramCard(name: sensorData[index].name);
-        }
-      }
-    );
+    return sensorData.length > 0
+        ? ListView.builder(
+          itemCount: sensorData.length,
+          itemBuilder: (BuildContext context, int index) {
+            return DiagramCard(name: sensorData[index].name);
+          }
+    )
+        : Scaffold(
+          body: Center(
+            child: const Text(
+              "Нет диаграмм",
+              style: TextStyle(
+                  color: Color(0xFF102C14),
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold),
+              ),
+          )
+        );
   }
 }
