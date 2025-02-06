@@ -1,5 +1,15 @@
 import 'package:flutter/material.dart';
 
+class DiagramData {
+  String? name;
+  int? data;
+
+  DiagramData({
+    this.name,
+    this.data
+  });
+}
+
 class DiagramPage extends StatefulWidget {
   const DiagramPage({
     super.key
@@ -10,6 +20,12 @@ class DiagramPage extends StatefulWidget {
 }
 
 class _DiagramPage extends State<DiagramPage> {
+
+  List<DiagramData> sensorData = [
+    DiagramData(name: "Датчик №1", data: 0),
+    DiagramData(name: "Датчик №2", data: 1),
+    DiagramData(name: "Датчик №3", data: 2),
+  ];
 
   @override
   Widget build(BuildContext context) {
