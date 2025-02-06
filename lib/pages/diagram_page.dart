@@ -34,7 +34,11 @@ class _DiagramPage extends State<DiagramPage> {
     return ListView.builder(
       itemCount: sensorData.length,
       itemBuilder: (BuildContext context, int index) {
-        return DiagramCard(name: sensorData[index].name);
+        if (sensorData.length == 0) {
+          return Text("Нет датчиков");
+        } else {
+          return DiagramCard(name: sensorData[index].name);
+        }
       }
     );
   }
