@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class DiagramCard extends StatelessWidget {
-  const DiagramCard({
+  DiagramCard({
     super.key,
     required this.name,
     required this.isOpen
   });
 
   final String? name;
-  final bool? isOpen;
+  bool isOpen;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,10 @@ class DiagramCard extends StatelessWidget {
               ),
               margin: EdgeInsets.symmetric(horizontal: width * 0.03, vertical: height * 0.05),
               child: GestureDetector(
-                onTap: () => {print("tap!")},
+                onTap: () {
+                  isOpen = !isOpen;
+                  print(isOpen);
+                },
                 child: Card(
                     color: Color(0xFFD4E4D7),
                     child: Container(

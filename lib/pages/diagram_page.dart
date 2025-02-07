@@ -4,12 +4,12 @@ import 'package:sensors/widgets/diagram_card.dart';
 class DiagramData {
   String? name;
   int? data;
-  bool? isOpen;
+  bool isOpen;
 
   DiagramData({
     this.name,
     this.data,
-    this.isOpen
+    required this.isOpen
   });
 }
 
