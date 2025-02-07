@@ -46,11 +46,14 @@ class DiagramCard extends StatelessWidget {
                                 )
                             ),
                             Spacer(),
-                            Icon(
-                              Icons.arrow_drop_down,
+                            isOpen ? Icon(
+                              Icons.arrow_drop_up,
                               color: Color(0xFF102C14),
                               size: 35,
-                            )
+                            ) : Icon(
+                                Icons.arrow_drop_down,
+                                color: Color(0xFF102C14),
+                                size: 35)
                           ],
                         )
                     )
