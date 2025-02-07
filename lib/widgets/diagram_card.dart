@@ -18,8 +18,8 @@ class DiagramCard extends StatelessWidget {
     return Row(
         children: [
           Container(
-              width: 800,
-              height: 100,
+              width: 700,
+              height: 80,
               padding: const EdgeInsets.all(15.0),
               decoration: BoxDecoration(
                   color: Color(0xFF102C14),
