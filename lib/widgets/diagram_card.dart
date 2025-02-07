@@ -4,9 +4,11 @@ class DiagramCard extends StatelessWidget {
   const DiagramCard({
     super.key,
     required this.name,
+    required this.isOpen
   });
 
   final String? name;
+  final bool? isOpen;
 
   @override
   Widget build(BuildContext context) {

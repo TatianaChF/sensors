@@ -37,7 +37,7 @@ class _DiagramPage extends State<DiagramPage> {
         ? ListView.builder(
           itemCount: sensorData.length,
           itemBuilder: (BuildContext context, int index) {
-            return DiagramCard(name: sensorData[index].name);
+            return DiagramCard(name: sensorData[index].name, isOpen: sensorData[index].isOpen);
           }
     )
         : Scaffold(
