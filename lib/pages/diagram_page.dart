@@ -4,10 +4,12 @@ import 'package:sensors/widgets/diagram_card.dart';
 class DiagramData {
   String? name;
   int? data;
+  bool? isOpen;
 
   DiagramData({
     this.name,
-    this.data
+    this.data,
+    this.isOpen
   });
 }
 
@@ -23,9 +25,9 @@ class DiagramPage extends StatefulWidget {
 class _DiagramPage extends State<DiagramPage> {
 
   List<DiagramData> sensorData = [
-    // DiagramData(name: "Датчик №1", data: 0),
-    // DiagramData(name: "Датчик №2", data: 1),
-    // DiagramData(name: "Датчик №3", data: 2),
+    DiagramData(name: "Датчик №1", data: 0, isOpen: false),
+    DiagramData(name: "Датчик №2", data: 1, isOpen: false),
+    DiagramData(name: "Датчик №3", data: 2, isOpen: false),
   ];
 
   @override
