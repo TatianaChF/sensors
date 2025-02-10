@@ -72,14 +72,14 @@ class _ExpandableCardState extends State<ExpandableCard> {
               ),
               if (isOpen) ...[
                 Container(
-                  margin: EdgeInsets.only(top: 15, left: 15, right: 15),
+                  margin: EdgeInsets.only(top: 15, left: 15),
                   child: Row(
                     children: [
                       ElevatedButton(
                         onPressed: () {}, 
                         child: Text("Гистограмма")
                       ),
-                      Spacer(),
+                      SizedBox(width: 30,),
                       ElevatedButton(
                         onPressed: () {}, 
                         child: Text("3D-диаграмма")
