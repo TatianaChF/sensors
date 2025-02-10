@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 
 class ExpandableCard extends StatefulWidget {
-  ExpandableCard({
-    super.key,
-    required this.name,
-    required this.isOpen
-  });
+  ExpandableCard({super.key, required this.name, required this.isOpen});
 
   final String? name;
   final bool isOpen;
 
   @override
-  _ExpandableCardState createState() => _ExpandableCardState(this.name, this.isOpen);
+  _ExpandableCardState createState() =>
+      _ExpandableCardState(this.name, this.isOpen);
 }
 
 class _ExpandableCardState extends State<ExpandableCard> {
@@ -34,44 +31,41 @@ class _ExpandableCardState extends State<ExpandableCard> {
       child: AnimatedContainer(
         duration: Duration(milliseconds: 300),
         curve: Curves.easeInOut,
-        width: isOpen ? 300 : 700,
+        width: 700,
         height: isOpen ? 200 : 80,
         padding: const EdgeInsets.all(15.0),
-        margin: EdgeInsets.symmetric(horizontal: width * 0.03, vertical: height * 0.05),
+        margin: EdgeInsets.symmetric(
+            horizontal: width * 0.03, vertical: height * 0.05),
         decoration: BoxDecoration(
           color: Color(0xFF102C14),
           borderRadius: BorderRadius.circular(20.0),
         ),
-        child: Center(
-          child: Card(
-            color: Color(0xFFD4E4D7),
-            child: Container(
-                        margin: EdgeInsets.only(left: 15, right: 15),
-                        child: Row(
-                          children: [
-                            Text(
-                                "${name}",
-                                style: TextStyle(
-                                    color: Color(0xFF102C14),
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20
-                                )
-                            ),
-                            Spacer(),
-                            isOpen ? Icon(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Card(
+              color: Color(0xFFD4E4D7),
+              child: Container(
+                  margin: EdgeInsets.only(left: 15, right: 15),
+                  child: Row(
+                    children: [
+                      Text("${name}",
+                          style: TextStyle(
+                              color: Color(0xFF102C14),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20)),
+                      Spacer(),
+                      isOpen
+                          ? Icon(
                               Icons.arrow_drop_up,
                               color: Color(0xFF102C14),
                               size: 35,
-                            ) : Icon(
-                                Icons.arrow_drop_down,
-                                color: Color(0xFF102C14),
-                                size: 35
-                              )
-                          ],
-                        )
-                    )
-          )
-        ),
+                            )
+                          : Icon(Icons.arrow_drop_down,
+                              color: Color(0xFF102C14), size: 35)
+                    ],
+                  )))
+        ]),
       ),
     );
   }
