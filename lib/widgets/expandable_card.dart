@@ -36,7 +36,9 @@ class _ExpandableCardState extends State<ExpandableCard> {
         height: isOpen ? 600 : 80,
         padding: const EdgeInsets.all(15.0),
         margin: EdgeInsets.symmetric(
-            horizontal: width * 0.03, vertical: height * 0.05),
+            horizontal: width * 0.03, 
+            vertical: height * 0.05
+          ),
         decoration: BoxDecoration(
           color: Color(0xFF102C14),
           borderRadius: BorderRadius.circular(20.0),
@@ -69,17 +71,21 @@ class _ExpandableCardState extends State<ExpandableCard> {
                 )
               ),
               if (isOpen) ...[
-                Row(
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {}, 
-                      child: Text("Гистограмма")
-                    ),
-                    ElevatedButton(
-                      onPressed: () {}, 
-                      child: Text("3D-диаграмма")
-                    )
-                  ],
+                Container(
+                  margin: EdgeInsets.only(top: 15, left: 15, right: 15),
+                  child: Row(
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {}, 
+                        child: Text("Гистограмма")
+                      ),
+                      Spacer(),
+                      ElevatedButton(
+                        onPressed: () {}, 
+                        child: Text("3D-диаграмма")
+                      )
+                    ],
+                  ),
                 ),
                 Expanded(
                   child: BarChartSample()
