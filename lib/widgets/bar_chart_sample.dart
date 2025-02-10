@@ -188,3 +188,22 @@ class _BarChart extends StatelessWidget {
         ),
   ];
 }
+
+class BarChartSample extends StatefulWidget {
+  const BarChartSample({
+    super.key
+  });
+
+  @override
+  State<StatefulWidget> createState() => BarChartSampleState();
+}
+
+class BarChartSampleState extends State<BarChartSample> {
+  @override
+  Widget build(BuildContext context) {
+    return const AspectRatio(
+      aspectRatio: 1.6,
+      child: _BarChart(),
+    );
+  }
+}
