@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
 
+class ExpandableCard extends StatefulWidget {
+  @override
+  _ExpandableCardState createState() => _ExpandableCardState();
+}
+
+class _ExpandableCardState extends State<ExpandableCard> {
+  
+}
+ 
 class DiagramCard extends StatelessWidget {
   DiagramCard({
     super.key,
