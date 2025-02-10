@@ -14,7 +14,7 @@ class _BarChart extends StatelessWidget {
         barGroups: barGroups, // список для отображения столбачтых диаграмм
         gridData: const FlGridData(show: false), // скрывать данные фоновой сетки
         alignment: BarChartAlignment.spaceAround, // выравнивание barGroups
-        maxY: 10 // максимальное значени y
+        maxY: 30, // максимальное значени y
       ),
     );
   }
@@ -51,25 +51,25 @@ class _BarChart extends StatelessWidget {
     String text;
     switch (value.toInt()) {
       case 0:
-        text = 'Mn';
+        text = 'Пн';
         break;
       case 1:
-        text = 'Te';
+        text = 'Вт';
         break;
       case 2:
-        text = 'Wd';
+        text = 'Ср';
         break;
       case 3:
-        text = 'Tu';
+        text = 'Чт';
         break;
       case 4:
-        text = 'Fr';
+        text = 'Пт';
         break;
       case 5:
-        text = 'St';
+        text = 'Сб';
         break;
       case 6:
-        text = 'Sn';
+        text = 'Вс';
         break;
       default:
         text = '';
