@@ -64,7 +64,9 @@ class _ExpandableCardState extends State<ExpandableCard> {
                           : Icon(Icons.arrow_drop_down,
                               color: Color(0xFF102C14), size: 35)
                     ],
-                  )))
+                  )
+                )
+              )
         ]),
       ),
     );
