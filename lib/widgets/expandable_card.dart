@@ -69,6 +69,18 @@ class _ExpandableCardState extends State<ExpandableCard> {
                 )
               ),
               if (isOpen) ...[
+                Row(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {}, 
+                      child: Text("Гистограмма")
+                    ),
+                    ElevatedButton(
+                      onPressed: () {}, 
+                      child: Text("3D-диаграмма")
+                    )
+                  ],
+                ),
                 Expanded(
                   child: BarChartSample()
                 )
