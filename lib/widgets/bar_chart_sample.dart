@@ -12,6 +12,9 @@ class _BarChartSample extends StatelessWidget {
         titlesData: titlesData, // сведения о заголовках
         borderData: borderData, // настройка отображения границы
         barGroups: barGroups, // список для отображения столбачтых диаграмм
+        gridData: const FlGridData(show: false), // скрывать данные фоновой сетки
+        alignment: BarChartAlignment.spaceAround, // выравнивание barGroups
+        maxY: 10 // максимальное значени y
       ),
     );
   }
