@@ -9,6 +9,7 @@ class _BarChartSample extends StatelessWidget {
     return BarChart(
       BarChartData(
         barTouchData: barTouchData, // сведения о сенсорном взаимодейтсвии
+        titlesData: titlesData // сведения о заголовках
       ),
     );
   }
@@ -35,4 +36,26 @@ class _BarChartSample extends StatelessWidget {
       }
     ) // внешний вид всплывающей подсказки
   );
+
+  FlTitlesData get titlesData => FlTitlesData(
+    show: true, // показывать заголовки
+    bottomTitles: AxisTitles(
+      sideTitles: SideTitles(
+        showTitles: true,
+        reservedSize: 30,
+        getTitlesWidget: getTitles
+      )
+    ), // данный для отрисовки нижних заголовков
+    leftTitles: const AxisTitles(
+      sideTitles: SideTitles(showTitles: false)
+    ),
+    topTitles: const AxisTitles(
+      sideTitles: SideTitles(showTitles: false)
+    ),
+    rightTitles: AxisTitles(
+      sideTitles: SideTitles(showTitles: false)
+    )
+  );
+
+
 }
