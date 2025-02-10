@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sensors/widgets/diagram_card.dart';
+import 'package:sensors/widgets/expandable_card.dart';
 
 class DiagramData {
   String? name;
