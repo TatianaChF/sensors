@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sensors/widgets/bar_chart_sample.dart';
 
 class ExpandableCard extends StatefulWidget {
   ExpandableCard({super.key, required this.name, required this.isOpen});
@@ -32,7 +33,7 @@ class _ExpandableCardState extends State<ExpandableCard> {
         duration: Duration(milliseconds: 300),
         curve: Curves.easeInOut,
         width: 700,
-        height: isOpen ? 200 : 80,
+        height: isOpen ? 600 : 80,
         padding: const EdgeInsets.all(15.0),
         margin: EdgeInsets.symmetric(
             horizontal: width * 0.03, vertical: height * 0.05),
@@ -67,6 +68,7 @@ class _ExpandableCardState extends State<ExpandableCard> {
                   )
                 )
               ),
+              if (isOpen) BarChartSample()
         ]),
       ),
     );
