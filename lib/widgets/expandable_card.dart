@@ -8,7 +8,7 @@ class ExpandableCard extends StatefulWidget {
   });
 
   final String? name;
-  bool isOpen;
+  final bool isOpen;
 
   @override
   _ExpandableCardState createState() => _ExpandableCardState(this.name, this.isOpen);
