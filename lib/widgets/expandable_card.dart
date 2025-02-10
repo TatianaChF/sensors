@@ -68,7 +68,11 @@ class _ExpandableCardState extends State<ExpandableCard> {
                   )
                 )
               ),
-              if (isOpen) BarChartSample()
+              if (isOpen) ...[
+                Expanded(
+                  child: BarChartSample()
+                )
+              ]
         ]),
       ),
     );
