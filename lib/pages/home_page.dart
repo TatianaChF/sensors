@@ -17,7 +17,6 @@ class _MyHomePageState extends State<MyHomePage> {
           width: 600,
           height: 500,
           child: Card(
-            color: Theme.of(context).cardTheme.color,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
                 side: BorderSide(
@@ -48,7 +47,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 TextButton(
                   onPressed: () => context.go("/map"),
-                  style: Theme.of(context).textButtonTheme.style,
                   child: Text(
                     'Начать', 
                     style: Theme.of(context).textTheme.bodySmall

@@ -37,17 +37,17 @@ class _DiagramPage extends State<DiagramPage> {
         ? ListView.builder(
           itemCount: sensorData.length,
           itemBuilder: (BuildContext context, int index) {
-            return ExpandableCard(name: sensorData[index].name, isOpen: sensorData[index].isOpen);
+            return ExpandableCard(
+              name: sensorData[index].name, 
+              isOpen: sensorData[index].isOpen
+            );
           }
     )
         : Scaffold(
           body: Center(
-            child: const Text(
+            child: Text(
               "Нет диаграмм",
-              style: TextStyle(
-                  color: Color(0xFF102C14),
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold),
+              style: Theme.of(context).textTheme.headlineMedium,
               ),
           )
         );

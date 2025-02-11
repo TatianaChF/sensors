@@ -47,16 +47,14 @@ class _ExpandableCardState extends State<ExpandableCard> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Card(
-              color: Color(0xFFD4E4D7),
               child: Container(
-                  margin: EdgeInsets.only(left: 15, right: 15),
+                  margin: Theme.of(context).cardTheme.margin,
                   child: Row(
                     children: [
-                      Text("${name}",
-                          style: TextStyle(
-                              color: Color(0xFF102C14),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20)),
+                      Text(
+                        "${name}",
+                        style: Theme.of(context).textTheme.bodyLarge
+                        ),
                       Spacer(),
                       isOpen
                           ? Icon(
@@ -64,8 +62,11 @@ class _ExpandableCardState extends State<ExpandableCard> {
                               color: Color(0xFF102C14),
                               size: 35,
                             )
-                          : Icon(Icons.arrow_drop_down,
-                              color: Color(0xFF102C14), size: 35)
+                          : Icon(
+                              Icons.arrow_drop_down,
+                              color: Color(0xFF102C14), 
+                              size: 35
+                            )
                     ],
                   )
                 )
@@ -77,12 +78,18 @@ class _ExpandableCardState extends State<ExpandableCard> {
                     children: [
                       ElevatedButton(
                         onPressed: () {}, 
-                        child: Text("Гистограмма")
+                        child: Text(
+                          "Гистограмма",
+                          style: Theme.of(context).textTheme.labelSmall
+                        ),
                       ),
                       SizedBox(width: 30,),
                       ElevatedButton(
                         onPressed: () {}, 
-                        child: Text("3D-диаграмма")
+                        child: Text(
+                          "3D-диаграмма",
+                          style: Theme.of(context).textTheme.labelSmall
+                        ),
                       )
                     ],
                   ),

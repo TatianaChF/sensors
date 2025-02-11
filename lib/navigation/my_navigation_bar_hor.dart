@@ -17,13 +17,8 @@ class MyNavigationBarHor extends StatelessWidget {
     return Scaffold(
       body: body,
       bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(
-        indicatorColor: Color(0xFFD4E4D7),
-        labelTextStyle: WidgetStateProperty.all(
-        const TextStyle(color: Colors.white,)
-      )),
+        data: Theme.of(context).navigationBarTheme,
       child: NavigationBar(
-        backgroundColor: Color(0xFF102C14),
         animationDuration: const Duration(seconds: 1),
         selectedIndex: currentIndex,
         destinations: const [
