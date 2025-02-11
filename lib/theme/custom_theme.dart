@@ -30,6 +30,23 @@ ThemeData _buildCustomTheme() {
       labelTextStyle: WidgetStateProperty.all(
         const TextStyle(color: Colors.white,)
       )
+    ),
+
+    textTheme: TextTheme(
+      headlineMedium: TextStyle(
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
+        color: secondaryColor
+      ),
+      bodyLarge: TextStyle(
+        fontSize: 18, 
+        color: secondaryColor
+      ),
+      labelLarge: TextStyle(
+        fontSize: 22,
+        fontWeight: FontWeight.bold,
+        color: secondaryColor
+      )
     )
   );
 }
