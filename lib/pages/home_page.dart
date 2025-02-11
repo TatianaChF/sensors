@@ -17,16 +17,17 @@ class _MyHomePageState extends State<MyHomePage> {
           width: 600,
           height: 500,
           child: Card(
-            color: Color(0xFFD4E4D7),
+            color: Theme.of(context).cardTheme.color,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
                 side: BorderSide(width: 1, color: Color(0xFF102C14))),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('Приложение "Датчики"',
-                    style:
-                        TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                Text(
+                  'Приложение "Датчики"',
+                    style: Theme.of(context).textTheme.headlineMedium
+                  ),
                 SizedBox(
                   height: 10,
                 ),
@@ -34,9 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: 500,
                   child: Text(
                     'Приложение для отображения датчиков на карте, вывода информации и графиков на основе данных от них',
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
+                    style: Theme.of(context).textTheme.labelLarge,
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -45,10 +44,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 ElevatedButton(
                   onPressed: () => context.go("/map"),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF102C14),
+                  style: Theme.of(context).elevatedButtonTheme.style,
+                  child: Text(
+                    'Начать', 
+                    style: Theme.of(context).textTheme.bodySmall
                   ),
-                  child: Text('Начать', style: TextStyle(color: Colors.white)),
                 )
               ],
             ),
