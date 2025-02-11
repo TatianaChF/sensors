@@ -17,6 +17,13 @@ ThemeData customTheme() {
       )
     ),
 
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        backgroundColor: secondaryColor,
+        padding: EdgeInsets.all(20)
+      )
+    ),
+
     cardTheme: CardTheme(
       color: primaryColor,
       margin: EdgeInsets.only(left: 15, right: 15),
