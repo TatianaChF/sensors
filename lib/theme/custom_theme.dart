@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-ThemeData _buildCustomTheme() {
+ThemeData customTheme() {
   const Color primaryColor = Color(0xFFD4E4D7);
   const Color secondaryColor = Color(0xFF102C14);
 
