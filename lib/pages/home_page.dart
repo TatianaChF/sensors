@@ -46,9 +46,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(
+                TextButton(
                   onPressed: () => context.go("/map"),
-                  style: Theme.of(context).elevatedButtonTheme.style,
+                  style: Theme.of(context).textButtonTheme.style,
                   child: Text(
                     'Начать', 
                     style: Theme.of(context).textTheme.bodySmall
