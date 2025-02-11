@@ -20,7 +20,11 @@ class _MyHomePageState extends State<MyHomePage> {
             color: Theme.of(context).cardTheme.color,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
-                side: BorderSide(width: 1, color: Color(0xFF102C14))),
+                side: BorderSide(
+                  width: 1, 
+                  color: Color(0xFF102C14)
+                )
+              ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
