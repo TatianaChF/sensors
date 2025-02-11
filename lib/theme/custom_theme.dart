@@ -11,6 +11,12 @@ ThemeData _buildCustomTheme() {
       primary: primaryColor,
       secondary: secondaryColor,
       surface: Colors.white
+    ),
+
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: primaryColor,
+      )
     )
   );
 }
