@@ -41,9 +41,11 @@ ThemeData customTheme() {
         color: secondaryColor
       ),
       labelLarge: TextStyle(
-        fontSize: 22,
-        fontWeight: FontWeight.bold,
+        fontSize: 20,
         color: secondaryColor
+      ),
+      bodySmall: TextStyle(
+        color: Colors.white
       )
     )
   );
