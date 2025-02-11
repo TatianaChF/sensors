@@ -22,6 +22,14 @@ ThemeData _buildCustomTheme() {
     cardTheme: CardTheme(
       color: primaryColor,
       margin: EdgeInsets.only(left: 15, right: 15),
+    ),
+
+    navigationBarTheme: NavigationBarThemeData(
+      backgroundColor: secondaryColor,
+      indicatorColor: primaryColor,
+      labelTextStyle: WidgetStateProperty.all(
+        const TextStyle(color: Colors.white,)
+      )
     )
   );
 }
