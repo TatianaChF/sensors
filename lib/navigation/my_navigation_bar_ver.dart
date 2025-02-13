@@ -18,6 +18,8 @@ class MyNavigationBarVer extends StatelessWidget {
       body: Row(
         children: [
           NavigationRail(
+            backgroundColor: Theme.of(context).navigationBarTheme.backgroundColor,
+            indicatorColor: Theme.of(context).navigationBarTheme.indicatorColor,
             onDestinationSelected: onDestinationSelected,
             labelType: NavigationRailLabelType.all,
             selectedIndex: currentIndex,
