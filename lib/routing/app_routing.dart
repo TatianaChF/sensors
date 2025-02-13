@@ -3,6 +3,7 @@ import 'package:sensors/pages/diagram_page.dart';
 import 'package:sensors/pages/home_page.dart';
 import 'package:sensors/pages/map_screen.dart';
 import 'package:sensors/navigation/my_navigation_bar.dart';
+import 'package:sensors/widgets/chart_3d.dart';
 
 final router = GoRouter(
   initialLocation: '/',
@@ -27,7 +28,7 @@ final router = GoRouter(
           routes: [
             GoRoute(
               path: '/diagram',
-              builder: (context, state) => const DiagramPage(),
+              builder: (context, state) => Chart3d(),
             ),
           ],
         ),
