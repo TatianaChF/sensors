@@ -39,6 +39,7 @@ dependencies:
   flutter_riverpod: ^2.6.1
   fl_chart: ^0.70.2
   flutter_echarts: ^2.5.0
+  webview_flutter_web: ^0.2.3+4
 
 dev_dependencies:
   flutter_test:
